@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Swahili AI Annotation Lab — a portfolio simulation for annotating synthetic Swahili text for AI training." />
+  <title>Swahili AI Annotation Lab</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+
+  <div class="app-shell">
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar" aria-label="Primary navigation and progress">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">SA</div>
+        <div class="brand-text">
+          <h1>Swahili AI</h1>
+          <span>Annotation Lab</span>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Views">
+        <button class="nav-btn active" data-view="annotate" type="button">
+          <span class="nav-ico" aria-hidden="true">✎</span> Annotate
+        </button>
+        <button class="nav-btn" data-view="guidelines" type="button">
+          <span class="nav-ico" aria-hidden="true">📘</span> Guidelines
+        </button>
+        <button class="nav-btn" data-view="review" type="button">
+          <span class="nav-ico" aria-hidden="true">🔍</span> Review Mode
+        </button>
+        <button class="nav-btn" data-view="dashboard" type="button">
+          <span class="nav-ico" aria-hidden="true">📊</span> Dashboard
+        </button>
+      </nav>
+
+      <section class="progress-card" aria-label="Overall progress">
+        <div class="progress-head">
+          <span>Overall progress</span>
+          <strong id="progress-percent">0%</strong>
+        </div>
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <ul class="mini-stats">
+          <li><span>Completed</span><strong id="stat-completed">0</strong></li>
+          <li><span>Skipped</span><strong id="stat-skipped">0</strong></li>
+          <li><span>Remaining</span><strong id="stat-remaining">50</strong></li>
+        </ul>
+      </section>
+
+      <div class="sidebar-actions">
+        <button id="export-json" class="btn btn-ghost" type="button">Export JSON</button>
+        <button id="export-csv" class="btn btn-ghost" type="button">Export CSV</button>
+        <button id="reset-btn" class="btn btn-danger" type="button">Reset progress</button>
+      </div>
+
+      <p class="disclaimer">Portfolio simulation · synthetic data only.</p>
+    </aside>
+
+    <!-- ================= MAIN ================= -->
+    <main class="workspace" id="workspace">
+
+      <!-- ANNOTATE VIEW -->
+      <section class="view active" id="view-annotate" aria-labelledby="annotate-title">
+        <header class="view-head">
+          <div>
+            <h2 id="annotate-title">Annotation workspace</h2>
+            <p class="muted">Label each Swahili sentence across four dimensions, then save.</p>
+          </div>
+          <div class="task-counter" id="task-counter">Task 1 / 50</div>
+        </header>
+
+        <div class="card task-card">
+          <div class="task-meta">
+            <span class="pill" id="task-id">SW-001</span>
+            <span class="pill muted-pill" id="task-domain">Domain: daily life</span>
+            <span class="flag" id="flag-incomplete" hidden>⚠ Incomplete annotation</span>
+          </div>
+
+          <blockquote class="sentence" id="task-sentence" lang="sw">…</blockquote>
+
+          <form id="annotation-form" class="annotation-form" novalidate>
+            <fieldset>
+              <legend>Sentiment</legend>
+              <div class="chips" data-group="sentiment">
+                <label class="chip"><input type="radio" name="sentiment" value="positive"><span>Positive</span></label>
+                <label class="chip"><input type="radio" name="sentiment" value="negative"><span>Negative</span></label>
+                <label class="chip"><input type="radio" name="sentiment" value="neutral"><span>Neutral</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Intent</legend>
+              <div class="chips" data-group="intent">
+                <label class="chip"><input type="radio" name="intent" value="question"><span>Question</span></label>
+                <label class="chip"><input type="radio" name="intent" value="request"><span>Request</span></label>
+                <label class="chip"><input type="radio" name="intent" value="complaint"><span>Complaint</span></label>
+                <label class="chip"><input type="radio" name="intent" value="greeting"><span>Greeting</span></label>
+                <label class="chip"><input type="radio" name="intent" value="statement"><span>Statement</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Topic</legend>
+              <div class="chips" data-group="topic">
+                <label class="chip"><input type="radio" name="topic" value="health"><span>Health</span></label>
+                <label class="chip"><input type="radio" name="topic" value="transport"><span>Transport</span></label>
+                <label class="chip"><input type="radio" name="topic" value="money"><span>Money</span></label>
+                <label class="chip"><input type="radio" name="topic" value="education"><span>Education</span></label>
+                <label class="chip"><input type="radio" name="topic" value="food"><span>Food</span></label>
+                <label class="chip"><input type="radio" name="topic" value="family"><span>Family</span></label>
+                <label class="chip"><input type="radio" name="topic" value="weather"><span>Weather</span></label>
+                <label class="chip"><input type="radio" name="topic" value="other"><span>Other</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Language</legend>
+              <div class="chips" data-group="language">
+                <label class="chip"><input type="radio" name="language" value="swahili"><span>Swahili</span></label>
+                <label class="chip"><input type="radio" name="language" value="english"><span>English</span></label>
+                <label class="chip"><input type="radio" name="language" value="code-switching"><span>Code-switching</span></label>
+              </div>
+            </fieldset>
+
+            <div class="note-row">
+              <label for="annotator-note" class="note-label">Optional note</label>
+              <textarea id="annotator-note" rows="2" maxlength="240" placeholder="Add context or ambiguity notes (optional)…"></textarea>
+            </div>
+
+            <div class="actions">
+              <button type="button" class="btn btn-ghost" id="skip-btn">Skip</button>
+              <button type="button" class="btn btn-ghost" id="prev-btn">← Previous</button>
+              <button type="submit" class="btn btn-primary" id="save-btn">Save & Next →</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- GUIDELINES VIEW -->
+      <section class="view" id="view-guidelines" aria-labelledby="guidelines-title" hidden>
+        <header class="view-head">
+          <div>
+            <h2 id="guidelines-title">Annotation guidelines</h2>
+            <p class="muted">Read these before labeling. Consistent definitions produce usable training data.</p>
+          </div>
+        </header>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>Sentiment</h3>
+            <dl>
+              <dt>Positive</dt><dd>Clearly favorable emotion, gratitude, or satisfaction.</dd>
+              <dt>Negative</dt><dd>Frustration, anger, dissatisfaction, or complaint tone.</dd>
+              <dt>Neutral</dt><dd>Factual or informational with no clear emotional polarity.</dd>
+            </dl>
+          </article>
+
+          <article class="card">
+            <h3>Intent</h3>
+            <dl>
+              <dt>Question</dt><dd>Seeks information; often ends with a question mark or interrogative.</dd>
+              <dt>Request</dt><dd>Asks for an action, favor, or service politely.</dd>
+              <dt>Complaint</dt><dd>Reports a problem or dissatisfaction with a service/experience.</dd>
+              <dt>Greeting</dt><dd>Opens a conversation or exchange of pleasantries.</dd>
+              <dt>Statement</dt><dd>Declares information without asking or demanding.</dd>
+            </dl>
+          </article>
+
+          <article class="card">
+            <h3>Topic</h3>
+            <dl>
+              <dt>Health</dt><dd>Medical, wellness, clinics, symptoms.</dd>
+              <dt>Transport</dt><dd>Matatu, boda boda, traffic, travel.</dd>
+              <dt>Money</dt><dd>M-Pesa, prices, payments, savings.</dd>
+              <dt>Education</dt><dd>Schools, exams, teachers, learning.</dd>
+              <dt>Food</dt><dd>Meals, markets, restaurants, cooking.</dd>
+              <dt>Family</dt><dd>Relatives, household, parenting.</dd>
+              <dt>Weather</dt><dd>Rain, sun, seasons, climate.</dd>
+              <dt>Other</dt><dd>Anything outside the above categories.</dd>
+            </dl>
+          </article>
+
+          <article class="card">
+            <h3>Language</h3>
+            <dl>
+              <dt>Swahili</dt><dd>Predominantly Swahili (with standard loanwords acceptable).</dd>
+              <dt>English</dt><dd>Predominantly English text.</dd>
+              <dt>Code-switching</dt><dd>Meaningful mixing of Swahili and English in the same sentence.</dd>
+            </dl>
+          </article>
+        </div>
+
+        <article class="card">
+          <h3>Workflow rules</h3>
+          <ol>
+            <li>Every sentence requires all four labels; incomplete rows are flagged.</li>
+            <li>Use <strong>Skip</strong> if genuinely ambiguous; skipped rows remain unlabeled.</li>
+            <li>Notes are optional but encouraged for edge cases.</li>
+            <li>Progress is saved automatically to your browser (localStorage).</li>
+          </ol>
+        </article>
+      </section>
+
+      <!-- REVIEW VIEW -->
+      <section class="view" id="view-review" aria-labelledby="review-title" hidden>
+        <header class="view-head">
+          <div>
+            <h2 id="review-title">Review mode</h2>
+            <p class="muted">Compare your labels against reference labels and explanations for selected examples.</p>
+          </div>
+          <button class="btn btn-ghost" id="review-refresh" type="button">Refresh</button>
+        </header>
+        <div id="review-list" class="review-list" aria-live="polite"></div>
+      </section>
+
+      <!-- DASHBOARD VIEW -->
+      <section class="view" id="view-dashboard" aria-labelledby="dash-title" hidden>
+        <header class="view-head">
+          <div>
+            <h2 id="dash-title">Dashboard</h2>
+            <p class="muted">Live progress and label distribution from your session.</p>
+          </div>
+          <button class="btn btn-ghost" id="dash-refresh" type="button">Refresh</button>
+        </header>
+
+        <div class="stat-grid">
+          <div class="card stat"><span>Total tasks</span><strong id="d-total">50</strong></div>
+          <div class="card stat"><span>Completed</span><strong id="d-completed">0</strong></div>
+          <div class="card stat"><span>Skipped</span><strong id="d-skipped">0</strong></div>
+          <div class="card stat"><span>Incomplete flags</span><strong id="d-incomplete">0</strong></div>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>Sentiment distribution</h3>
+            <ul class="dist" id="dist-sentiment"></ul>
+          </article>
+          <article class="card">
+            <h3>Intent distribution</h3>
+            <ul class="dist" id="dist-intent"></ul>
+          </article>
+          <article class="card">
+            <h3>Topic distribution</h3>
+            <ul class="dist" id="dist-topic"></ul>
+          </article>
+          <article class="card">
+            <h3>Language distribution</h3>
+            <ul class="dist" id="dist-language"></ul>
+          </article>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Reset confirmation modal -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <h3 id="modal-title">Reset all progress?</h3>
+      <p>This will permanently clear all saved labels, skips, and notes from this browser. This cannot be undone.</p>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="modal-cancel" type="button">Cancel</button>
+        <button class="btn btn-danger" id="modal-confirm" type="button">Yes, reset</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>
