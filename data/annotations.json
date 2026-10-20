@@ -1,0 +1,610 @@
+{
+  "meta": {
+    "project": "Swahili AI Annotation Lab",
+    "note": "Independent portfolio simulation. All sentences are synthetic and written for demonstration. Not a real employer project.",
+    "datasetVersion": "1.0.0",
+    "totalExamples": 50
+  },
+  "examples": [
+    {
+      "id": "SW-001",
+      "sentence": "Habari za asubuhi, umelala vizuri?",
+      "domain": "daily life",
+      "reference": {
+        "sentiment": "positive",
+        "intent": "greeting",
+        "topic": "family",
+        "language": "swahili"
+      },
+      "explanation": "A warm morning greeting asking how someone slept. Positive tone, greeting intent, family/relationship topic, pure Swahili."
+    },
+    {
+      "id": "SW-002",
+      "sentence": "Nina homa na koo linaniuma tangu jana usiku.",
+      "domain": "health",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "statement",
+        "topic": "health",
+        "language": "swahili"
+      },
+      "explanation": "Describes illness symptoms; negative sentiment because of discomfort, statement intent, health topic, Swahili."
+    },
+    {
+      "id": "SW-003",
+      "sentence": "Naomba uniletee chai ya maziwa na mkate mmoja.",
+      "domain": "food",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "request",
+        "topic": "food",
+        "language": "swahili"
+      },
+      "explanation": "Polite request for tea and bread. Neutral sentiment, request intent, food topic, Swahili."
+    },
+    {
+      "id": "SW-004",
+      "sentence": "Matatu ya Route 111 imechelewa tena leo!",
+      "domain": "transport",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "complaint",
+        "topic": "transport",
+        "language": "swahili"
+      },
+      "explanation": "Expresses frustration about a late matatu. Negative complaint about transport in Swahili."
+    },
+    {
+      "id": "SW-005",
+      "sentence": "Je, unaweza kunisaidia kutuma pesa kwa M-Pesa?",
+      "domain": "money",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "question",
+        "topic": "money",
+        "language": "code-switching"
+      },
+      "explanation": "Swahili question about sending money via M-Pesa — an English loanword commonly used in Kenya, coded as code-switching."
+    },
+    {
+      "id": "SW-006",
+      "sentence": "Mtihani wa hesabu ulikuwa mgumu lakini nilifanya vizuri.",
+      "domain": "education",
+      "reference": {
+        "sentiment": "positive",
+        "intent": "statement",
+        "topic": "education",
+        "language": "swahili"
+      },
+      "explanation": "Student reflects on a hard math exam but did well. Mixed but overall positive, statement, education, Swahili."
+    },
+    {
+      "id": "SW-007",
+      "sentence": "Mvua imeanza kunyesha, lazima nibebe mwavuli.",
+      "domain": "weather",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "statement",
+        "topic": "weather",
+        "language": "swahili"
+      },
+      "explanation": "Factual remark about rain and needing an umbrella. Neutral statement about weather in Swahili."
+    },
+    {
+      "id": "SW-008",
+      "sentence": "Mama amepika ugali na sukuma wiki, karibu tule pamoja.",
+      "domain": "food",
+      "reference": {
+        "sentiment": "positive",
+        "intent": "greeting",
+        "topic": "food",
+        "language": "swahili"
+      },
+      "explanation": "Invitation to share a meal — warm and welcoming. Positive, greeting/invitation, food, Swahili."
+    },
+    {
+      "id": "SW-009",
+      "sentence": "Duka la dawa limefungwa, sijui nitapata dawa wapi.",
+      "domain": "health",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "statement",
+        "topic": "health",
+        "language": "swahili"
+      },
+      "explanation": "Concern about a closed pharmacy and no access to medicine. Negative, statement, health, Swahili."
+    },
+    {
+      "id": "SW-010",
+      "sentence": "Please call me back when you reach the office.",
+      "domain": "daily life",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "request",
+        "topic": "other",
+        "language": "english"
+      },
+      "explanation": "Fully English polite request. Neutral, request, other topic, English."
+    },
+    {
+      "id": "SW-011",
+      "sentence": "Boda boda imepinduka karibu na barabara kuu, kuna majeruhi.",
+      "domain": "transport",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "statement",
+        "topic": "transport",
+        "language": "swahili"
+      },
+      "explanation": "Reports an accident with injuries. Negative statement about transport in Swahili."
+    },
+    {
+      "id": "SW-012",
+      "sentence": "Baba, naomba unipe pesa ya chakula cha mchana.",
+      "domain": "family",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "request",
+        "topic": "family",
+        "language": "swahili"
+      },
+      "explanation": "Child asks father for lunch money. Neutral request, family topic, Swahili."
+    },
+    {
+      "id": "SW-013",
+      "sentence": "Siku ya leo ni ya joto sana, nitakunywa maji mengi.",
+      "domain": "weather",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "statement",
+        "topic": "weather",
+        "language": "swahili"
+      },
+      "explanation": "Comment about hot weather and drinking water. Neutral statement, weather, Swahili."
+    },
+    {
+      "id": "SW-014",
+      "sentence": "Kwa nini hakuna maji leo? Tunahitaji kuwasiliana na kanjo.",
+      "domain": "daily life",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "question",
+        "topic": "other",
+        "language": "swahili"
+      },
+      "explanation": "Frustrated question about water shortage and contacting the county. Negative question, other topic, Swahili."
+    },
+    {
+      "id": "SW-015",
+      "sentence": "Tuko tayari kuanza mkutano wa wazazi shuleni.",
+      "domain": "education",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "statement",
+        "topic": "education",
+        "language": "swahili"
+      },
+      "explanation": "Announces a parents' meeting at school. Neutral statement, education, Swahili."
+    },
+    {
+      "id": "SW-016",
+      "sentence": "The M-Pesa transaction failed, please try again later.",
+      "domain": "money",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "statement",
+        "topic": "money",
+        "language": "code-switching"
+      },
+      "explanation": "English sentence with a Kenyan brand name (M-Pesa) — treated as code-switching/loanword. Negative failure statement about money."
+    },
+    {
+      "id": "SW-017",
+      "sentence": "Nimefurahi sana kukuona tena baada ya muda mrefu!",
+      "domain": "family",
+      "reference": {
+        "sentiment": "positive",
+        "intent": "greeting",
+        "topic": "family",
+        "language": "swahili"
+      },
+      "explanation": "Joy at seeing someone after long. Positive greeting, family, Swahili."
+    },
+    {
+      "id": "SW-018",
+      "sentence": "Gari langu limeharibika, nahitaji fundi wa haraka.",
+      "domain": "transport",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "request",
+        "topic": "transport",
+        "language": "swahili"
+      },
+      "explanation": "Car broke down; needs a mechanic urgently. Negative request, transport, Swahili."
+    },
+    {
+      "id": "SW-019",
+      "sentence": "Karibu nyumbani, chakula kiko tayari mezani.",
+      "domain": "food",
+      "reference": {
+        "sentiment": "positive",
+        "intent": "greeting",
+        "topic": "food",
+        "language": "swahili"
+      },
+      "explanation": "Welcoming someone home with food ready. Positive greeting, food, Swahili."
+    },
+    {
+      "id": "SW-020",
+      "sentence": "Je, una joto? Labda unahitaji dawa ya malaria.",
+      "domain": "health",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "question",
+        "topic": "health",
+        "language": "swahili"
+      },
+      "explanation": "Asking if someone has a fever and suggesting malaria medicine. Neutral question, health, Swahili."
+    },
+    {
+      "id": "SW-021",
+      "sentence": "Nimeshindwa kulipa kodi ya nyumba mwezi huu.",
+      "domain": "money",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "statement",
+        "topic": "money",
+        "language": "swahili"
+      },
+      "explanation": "Unable to pay rent this month. Negative statement, money, Swahili."
+    },
+    {
+      "id": "SW-022",
+      "sentence": "Teacher alisema tunapaswa kuleta vitabu kesho.",
+      "domain": "education",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "statement",
+        "topic": "education",
+        "language": "code-switching"
+      },
+      "explanation": "Swahili sentence with the English loanword 'teacher'. Code-switching, neutral statement, education."
+    },
+    {
+      "id": "SW-023",
+      "sentence": "Naomba unifungulie mlango, nimesahau funguo.",
+      "domain": "daily life",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "request",
+        "topic": "other",
+        "language": "swahili"
+      },
+      "explanation": "Polite request to open the door. Neutral request, other topic, Swahili."
+    },
+    {
+      "id": "SW-024",
+      "sentence": "Serikali imetangaza bei mpya ya unga wa mahindi.",
+      "domain": "daily life",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "statement",
+        "topic": "food",
+        "language": "swahili"
+      },
+      "explanation": "Announces new maize flour price. Neutral statement, food topic, Swahili."
+    },
+    {
+      "id": "SW-025",
+      "sentence": "Nina wasiwasi kuhusu foleni ndefu ya hospitali.",
+      "domain": "health",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "statement",
+        "topic": "health",
+        "language": "swahili"
+      },
+      "explanation": "Worried about a long hospital queue. Negative statement, health, Swahili."
+    },
+    {
+      "id": "SW-026",
+      "sentence": "Tutaonana kesho kwenye soko la mtihani?",
+      "domain": "daily life",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "question",
+        "topic": "other",
+        "language": "swahili"
+      },
+      "explanation": "Asks about meeting tomorrow. Neutral question, other topic, Swahili."
+    },
+    {
+      "id": "SW-027",
+      "sentence": "Hongera kwa kufaulu mtihani wako wa mwisho!",
+      "domain": "education",
+      "reference": {
+        "sentiment": "positive",
+        "intent": "greeting",
+        "topic": "education",
+        "language": "swahili"
+      },
+      "explanation": "Congratulates someone for passing final exams. Positive greeting/congratulation, education, Swahili."
+    },
+    {
+      "id": "SW-028",
+      "sentence": "I need a receipt for the fare, tafadhali.",
+      "domain": "transport",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "request",
+        "topic": "transport",
+        "language": "code-switching"
+      },
+      "explanation": "English request with Swahili 'tafadhali' (please). Code-switching, neutral request, transport."
+    },
+    {
+      "id": "SW-029",
+      "sentence": "Watoto wanacheza mpira nje, wana furaha sana.",
+      "domain": "family",
+      "reference": {
+        "sentiment": "positive",
+        "intent": "statement",
+        "topic": "family",
+        "language": "swahili"
+      },
+      "explanation": "Children playing football happily outside. Positive statement, family, Swahili."
+    },
+    {
+      "id": "SW-030",
+      "sentence": "Chakula cha mgahawa kile kilikuwa kibaya sana jana.",
+      "domain": "food",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "complaint",
+        "topic": "food",
+        "language": "swahili"
+      },
+      "explanation": "Complains that restaurant food was bad. Negative complaint, food, Swahili."
+    },
+    {
+      "id": "SW-031",
+      "sentence": "Je, kuna duka la nguo karibu na hapa?",
+      "domain": "daily life",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "question",
+        "topic": "other",
+        "language": "swahili"
+      },
+      "explanation": "Asks if there is a clothing shop nearby. Neutral question, other topic, Swahili."
+    },
+    {
+      "id": "SW-032",
+      "sentence": "Tafadhali nisaidie kupata daktari wa meno.",
+      "domain": "health",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "request",
+        "topic": "health",
+        "language": "swahili"
+      },
+      "explanation": "Polite request for help finding a dentist. Neutral request, health, Swahili."
+    },
+    {
+      "id": "SW-033",
+      "sentence": "I have paid the school fees through the bank.",
+      "domain": "education",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "statement",
+        "topic": "education",
+        "language": "english"
+      },
+      "explanation": "English statement about paying school fees. Neutral, education, English."
+    },
+    {
+      "id": "SW-034",
+      "sentence": "Kuna msongamano mkubwa wa magari kwenye barabara kuu.",
+      "domain": "transport",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "statement",
+        "topic": "transport",
+        "language": "swahili"
+      },
+      "explanation": "Heavy traffic congestion on the main road. Negative statement, transport, Swahili."
+    },
+    {
+      "id": "SW-035",
+      "sentence": "Mungu akubariki kwa msaada wako mkubwa.",
+      "domain": "daily life",
+      "reference": {
+        "sentiment": "positive",
+        "intent": "greeting",
+        "topic": "other",
+        "language": "swahili"
+      },
+      "explanation": "Blessing and gratitude for help. Positive greeting/thanks, other topic, Swahili."
+    },
+    {
+      "id": "SW-036",
+      "sentence": "Bei ya nyanya imepanda sana sokoni leo.",
+      "domain": "food",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "statement",
+        "topic": "food",
+        "language": "swahili"
+      },
+      "explanation": "Tomato prices have risen sharply. Negative (for buyer) statement, food, Swahili."
+    },
+    {
+      "id": "SW-037",
+      "sentence": "Ninaweza kukupigia simu baada ya kazi?",
+      "domain": "daily life",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "question",
+        "topic": "other",
+        "language": "swahili"
+      },
+      "explanation": "Asks if it's okay to call after work. Neutral question, other topic, Swahili."
+    },
+    {
+      "id": "SW-038",
+      "sentence": "The boda boda rider was very polite and fast.",
+      "domain": "transport",
+      "reference": {
+        "sentiment": "positive",
+        "intent": "statement",
+        "topic": "transport",
+        "language": "code-switching"
+      },
+      "explanation": "English sentence using 'boda boda'. Positive statement, transport, code-switching."
+    },
+    {
+      "id": "SW-039",
+      "sentence": "Mmea wa mahindi shambani umeanza kukauka kwa ukame.",
+      "domain": "weather",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "statement",
+        "topic": "weather",
+        "language": "swahili"
+      },
+      "explanation": "Crops drying from drought. Negative statement, weather, Swahili."
+    },
+    {
+      "id": "SW-040",
+      "sentence": "Je, unaweza kunipatia orodha ya bei?",
+      "domain": "money",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "request",
+        "topic": "money",
+        "language": "swahili"
+      },
+      "explanation": "Asks for a price list. Neutral request, money, Swahili."
+    },
+    {
+      "id": "SW-041",
+      "sentence": "Tulifanya safari nzuri kwenda Mombasa wikendi iliyopita.",
+      "domain": "transport",
+      "reference": {
+        "sentiment": "positive",
+        "intent": "statement",
+        "topic": "transport",
+        "language": "swahili"
+      },
+      "explanation": "Describes a nice trip to Mombasa. Positive statement, transport/travel, Swahili."
+    },
+    {
+      "id": "SW-042",
+      "sentence": "Kuna kelele nyingi usiku, sielewi nini kinaendelea.",
+      "domain": "daily life",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "statement",
+        "topic": "other",
+        "language": "swahili"
+      },
+      "explanation": "Too much noise at night, confused about what's happening. Negative statement, other topic, Swahili."
+    },
+    {
+      "id": "SW-043",
+      "sentence": "Nimesahau kuchukua dawa zangu leo asubuhi.",
+      "domain": "health",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "statement",
+        "topic": "health",
+        "language": "swahili"
+      },
+      "explanation": "Forgot to take medicine this morning. Negative statement, health, Swahili."
+    },
+    {
+      "id": "SW-044",
+      "sentence": "Can you send me the list of assignments on WhatsApp?",
+      "domain": "education",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "request",
+        "topic": "education",
+        "language": "code-switching"
+      },
+      "explanation": "English request referencing WhatsApp, a product name. Neutral request, education, code-switching."
+    },
+    {
+      "id": "SW-045",
+      "sentence": "Kila mtu nyumbani anasubiri kula pamoja jioni.",
+      "domain": "family",
+      "reference": {
+        "sentiment": "positive",
+        "intent": "statement",
+        "topic": "family",
+        "language": "swahili"
+      },
+      "explanation": "Family waits to eat together in the evening. Positive statement, family, Swahili."
+    },
+    {
+      "id": "SW-046",
+      "sentence": "Sijui kama nitapata kazi hii ya muda mfupi.",
+      "domain": "money",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "statement",
+        "topic": "money",
+        "language": "swahili"
+      },
+      "explanation": "Uncertain about getting a short-term job. Neutral statement, money/work, Swahili."
+    },
+    {
+      "id": "SW-047",
+      "sentence": "Je, mnauza bidhaa za mkopo kwa wateja wapya?",
+      "domain": "money",
+      "reference": {
+        "sentiment": "neutral",
+        "intent": "question",
+        "topic": "money",
+        "language": "swahili"
+      },
+      "explanation": "Asks whether they sell goods on credit to new customers. Neutral question, money, Swahili."
+    },
+    {
+      "id": "SW-048",
+      "sentence": "This app is very useful for paying bills quickly.",
+      "domain": "daily life",
+      "reference": {
+        "sentiment": "positive",
+        "intent": "statement",
+        "topic": "money",
+        "language": "english"
+      },
+      "explanation": "English positive review of an app for paying bills. Positive statement, money, English."
+    },
+    {
+      "id": "SW-049",
+      "sentence": "Tunahitaji msaada wa haraka, kuna ajali ya gari.",
+      "domain": "transport",
+      "reference": {
+        "sentiment": "negative",
+        "intent": "request",
+        "topic": "transport",
+        "language": "swahili"
+      },
+      "explanation": "Urgent request for help due to a car accident. Negative request, transport, Swahili."
+    },
+    {
+      "id": "SW-050",
+      "sentence": "Asante sana kwa kuja kwenye sherehe yetu ya familia.",
+      "domain": "family",
+      "reference": {
+        "sentiment": "positive",
+        "intent": "greeting",
+        "topic": "family",
+        "language": "swahili"
+      },
+      "explanation": "Thanks for attending a family celebration. Positive greeting/thanks, family, Swahili."
+    }
+  ]
+}
